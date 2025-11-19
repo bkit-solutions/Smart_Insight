@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/96/artificial-intelligence.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1e1e1e;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Floating animation shapes */
+        .floating-shapes span {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: rgba(37, 99, 235, 0.15);
+            border-radius: 50%;
+            animation: floatUp 9s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0.4; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px 100px;
+            background: #F3F7FB;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #4B5563;
+            max-width: 700px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .btn-primary {
+            background-color: #2563EB;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .hero .btn-primary:hover {
+            background-color: #1E40AF;
+        }
+
+        .hero .btn-outline-primary {
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+
+        /* Feature Cards */
+        .features {
+            padding: 70px 20px;
+        }
+
+        .features h2 {
+            font-weight: 700;
+            color: #1E3A8A;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.07);
+            transform: translateY(-4px);
+        }
+
+        .feature-card i {
+            font-size: 2.4rem;
+            color: #2563EB;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* TIMELINE SECTION */
+        .how-it-works {
+            padding: 80px 20px;
+            background: #FFFFFF;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 28px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #2563EB;
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            position: relative;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .timeline-icon {
+            width: 55px;
+            height: 55px;
+            background: #2563EB;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            margin-right: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            z-index: 5;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 23px;
+            width: 14px;
+            height: 14px;
+            background: #2563EB;
+            border-radius: 50%;
+        }
+
+        .timeline-content h4 {
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            margin: 0;
+            color: #4B5563;
+            font-size: 1rem;
+            line-height: 1.55rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1E3A8A;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Floating animation shapes — Darker & More Visible */
+.floating-shapes span {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: rgba(37, 99, 235, 0.28); /* increased opacity */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.35); /* subtle glow for visibility */
+    animation: floatUp 10s infinite ease-in-out;
+}
+
+/* animation with slightly slower + smoother movement */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.65;
+    }
+    40% {
+        opacity: 0.92;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero position-relative">
+    <div class="floating-shapes">
+        <span style="left: 8%; animation-delay: 0s;"></span>
+        <span style="left: 25%; animation-delay: 2s;"></span>
+        <span style="left: 45%; animation-delay: 3.5s;"></span>
+        <span style="left: 65%; animation-delay: 1.2s;"></span>
+        <span style="left: 85%; animation-delay: 4.2s;"></span>
+    </div>
+
+    <h1 class="hero-title">Student Performance Predictor</h1>
+
+    <p class="hero-subtitle">
+        Predict academic outcomes using machine learning insights and explore 
+        key educational factors that influence student success.
+    </p>
+
+    <div class="mt-4">
+        <a href="/predict" class="btn btn-primary me-2">Start Prediction</a>
+        <a href="/visualisation" class="btn btn-outline-primary">View Dataset Insights</a>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features container">
+    <h2>Key Features</h2>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <i class="fas fa-brain"></i>
+                <h4>ML-Powered Predictions</h4>
+                <p>Predict subject-wise scores with high accuracy using regression-based machine learning.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <i class="fas fa-chart-line"></i>
+                <h4>Dataset Insights</h4>
+                <p>Explore detailed analytics powered by SweetViz for deeper understanding.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card text-center">
+                <i class="fas fa-user-graduate"></i>
+                <h4>Easy to Use</h4>
+                <p>User-friendly design for students, teachers, and researchers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS (TIMELINE) -->
+<section class="how-it-works">
+    <h2 class="text-center mb-5">How It Works</h2>
+
+    <div class="timeline container">
+
+        <!-- Step 1 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-user-edit"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Step 1: Provide Inputs</h4>
+                <p>
+                    Enter demographic and academic-related fields such as gender, 
+                    race/ethnicity, parental education, lunch type, and test preparation status.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Step 2: Data Processing</h4>
+                <p>
+                    Inputs are cleaned and converted using one-hot encoding ensuring
+                    the model receives structured numeric data.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Step 3: ML Prediction</h4>
+                <p>
+                    The trained regression model maps user inputs to learned 
+                    dataset patterns and predicts Maths, Reading, and Writing scores.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Step 4: Results & Insights</h4>
+                <p>
+                    The system displays predicted scores and offers further 
+                    visualization insights for analysis.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 Student Performance Predictor
+</footer>
+
+</body>
+</html>
