@@ -151,7 +151,7 @@ This project is created for **Final Year Academic Use** and can be freely modifi
 ---
 
 ## 👨‍💻 Author  
-**Created By:** BKIT Solutions (Dharmaraju Caleb)  
+**Created By:** BKIT Solutions
 *Final Year Project — Data Science Track*
 
 ---
